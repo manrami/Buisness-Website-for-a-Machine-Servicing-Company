@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&family=Raleway:wght@600&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+            background-color: #e0f7e0; /* Light green background */
+        }
+		
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+.navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo-container img {
+            width: 70px; /* Increased logo size */
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .navbar .logo-container .company-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+        .navbar .nav-links a:hover {
+            background-color: #575757;
+        }
+		
+		
+		
+
+        
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slideshow-slide {
+            display: none;
+            height: 100vh;
+        }
+        .slideshow-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slideshow-slide:first-child {
+            display: block;
+        }
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.85); /* Brighter text color */
+            z-index: 10;
+            text-shadow: 2px 2px 4px #000; /* Added text shadow for better visibility */
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5em;
+            font-weight: 400;
+            margin: 10px 0 0;
+            letter-spacing: 1px;
+        }
+        .section {
+            padding: 50px;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+        }
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .section > * {
+            position: relative;
+            z-index: 2;
+        }
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff; /* Ensure the text is white */
+        }
+        .section p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #fff; /* Ensure the text is white */
+        }
+        .map {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            margin-top: 20px; /* Add margin to separate from the text above */
+        }
+        .map::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            position: relative;
+            z-index: 2;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer img {
+            width: 100px;
+        }
+        .footer .contact-info {
+            text-align: right; /* Align contact info to the right */
+            font-family: 'Roboto', sans-serif;
+        }
+        .footer .contact-info p {
+            margin: 5px 0;
+        }
+        .footer .contact-info .label {
+            font-weight: 600;
+        }
+        .footer .contact-info .value {
+            font-weight: 300;
+        }
+        .footer .social-media {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .footer .social-media a {
+            margin-left: 20px; /* Add margin between social media icons */
+        }
+        .footer .social-media img {
+            width: 30px;
+        }
+        .footer .social-media a:nth-child(2) img {
+            width: 35px; /* Increased LinkedIn icon size */
+        }
+
+        /* Updated About Us Section */
+        .about-us {
+            background-color: #ffde22; /* Yellow Background */
+            color: #333;
+            padding: 50px;
+            text-align: left;
+            font-family: 'Roboto', sans-serif; /* Updated font style */
+            position: relative; /* To position circles and gears */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .about-us h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333; /* Text color */
+        }
+        .about-us p {
+            font-family: 'Roboto', sans-serif; /* Updated font style */
+            font-size: 1.2em;
+            font-weight: 400;
+            margin: 10px 0 0;
+            letter-spacing: 1px;
+            color: #333; /* Text color */
+        }
+        .about-us p::first-letter {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .about-us::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff; /* White Layover */
+            opacity: 0.9; /* Transparency for layover */
+            z-index: 0; /* Behind text and circles */
+        }
+        .about-us > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Gearbox design */
+        .gearbox {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: url('gear.png') no-repeat center center;
+            background-size: contain;
+        }
+        .gearbox.large {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 20%;
+        }
+        .gearbox.small {
+            width: 75px;
+            height: 75px;
+            top: 40%;
+            left: 80%;
+        }
+
+        /* Owner Image */
+        .owner-image {
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 5px solid #333;
+            position: relative;
+            z-index: 2;
+        }
+        .owner-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 2;
+        }
+        .owner-info p {
+            margin: 10px 0 0;
+            font-family: 'Raleway', sans-serif; /* Elegant font style */
+            font-size: 2em;
+            font-weight: 600;
+            color: #333;
+            text-transform: none; /* Ensure first word is not capitalized */
+        }
+		
+		
+		.section.clientele {
+            position: relative;
+            background-image: url('cool4.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            color: #fff;
+        }
+
+        .clientele::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            backdrop-filter: blur(10px); /* Blur effect */
+            z-index: 1;
+        }
+
+        .clientele h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #fff; /* White text color */
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .client-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 2;
+            position: relative;
+        }
+
+        .client-info {
+            flex: 1;
+            margin-right: 20px;
+            max-width: 60%;
+        }
+
+        .client-info p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #fff; /* White text color */
+            font-family: 'Raleway', sans-serif;
+            text-align: justify;
+            font-weight: bold;
+        }
+
+        .client-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 35%;
+        }
+
+        .client {
+            text-align: center;
+            margin-bottom: 20px;
+            flex-basis: calc(50% - 10px); /* Two clients per row with 20px gap */
+        }
+
+        .client img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            object-fit: cover;
+        }
+
+        .client p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #fff; /* White text color */
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;
+        }
+
+        .view-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .hidden-client {
+            display: none;
+        }
+
+        .client-images {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .client {
+            width: 48%; /* Two clients in a row with a little gap */
+            margin-bottom: 20px; /* Adjust spacing between rows */
+        }
+
+        #viewMoreBtn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 2;
+            position: relative;
+        }
+
+        #viewMoreBtn:hover {
+            background-color: #ddd;
+        }
+		
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+		
+	  <div class="navbar">
+        <div class="logo-container">
+            <img src="RMS.jpg" alt="Logo" onclick="window.location.href='homepage.html'">
+            <div class="company-name">Site by man rami</div>
+        </div>
+        <div class="nav-links">
+            <a href="imagegallery.html">IMAGE GALLERY</a>
+			 <a href="products.html">PRODCUTS</a>
+            <a href="services.html">SERVICES</a>
+			<a href="usedmachinery.html">USEDMACHINERY</a>
+        </div>
+    </div>
+	
+
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+        <div class="slideshow-slide fade">
+            <video src="vid1.mp4" type="video/mp4" autoplay muted loop></video>
+        </div>
+        <div class="slideshow-slide fade">
+            <video src="vid2.mp4" type="video/mp4" autoplay muted loop></video>
+        </div>
+        <div class="slideshow-slide fade">
+            <video src="vid3.mp4" type="video/mp4" autoplay muted loop></video>
+        </div>
+        <div class="slideshow-slide fade">
+            <video src="vid4.mp4" type="video/mp4" autoplay muted loop></video>
+        </div>
+        <div class="slideshow-slide fade">
+            <video src="vid5.mp4" type="video/mp4" autoplay muted loop></video>
+        </div>
+        <div class="slideshow-slide fade">
+            <video src="vid6.mp4" type="video/mp4" autoplay muted loop></video>
+        </div>
+        <div class="content">
+            <h1>UR SERIVCES NAME HERE</h1>
+            <p>We are the best machine service provider in town, precise, accurate, and cost-efficient.</p>
+        </div>
+    </div>
+    
+    <!-- About Us Section -->
+    <div class="section about-us" id="about-us">
+        <div class="gearbox"></div>
+        <div class="gearbox large"></div>
+        <div class="gearbox small"></div>
+        <div>
+            <h2>About Us</h2>
+           <p>We provide a comprehensive range of services, including Maintenance Service, Retrofitting Systems, Consulting Services, and the Buying and Selling of Machines and their Parts. Our mission is to deliver exceptional guidance and directional support in Maintenance Management and Manufacturing Processes, ensuring our clients achieve optimal efficiency and productivity. We pride ourselves on our ability to enhance operational capabilities and streamline processes for businesses of all sizes.</p>
+			<p>Our expertise lies in developing new processes and driving continuous improvements in Maintenance Management and Materials Management. We specialize in retrofitting various machine systems, transitioning from old to the latest PLC-based logic control and commissioning systems. Our services also encompass electrical and electronics troubleshooting of machines and utilities, aimed at increasing the availability and reliability of equipment. We focus on implementing cutting-edge technology to ensure your machinery operates at peak performance.</p>
+			<p>We excel in automation project planning and execution within plant installations. Our team is proficient in installing new machinery and documenting the entire process. Additionally, we implement advanced automation systems and provide comprehensive training for production teams to adapt to the new systems seamlessly. Our goal is to ensure that your workforce is well-equipped to handle new technologies, thereby minimizing downtime and maximizing productivity.</p>
+			<p>Our maintenance services include inspecting equipment, conducting routine maintenance, servicing and replacing old or faulty equipment, and troubleshooting equipment malfunctions. We also manage the removal of outdated machinery and the installation of new, state-of-the-art machines. With extensive experience working with large-scale enterprises and micro, medium, and small industries, we understand the unique challenges each business faces. Customer satisfaction is our utmost priority, and we take pride in our ability to consistently deliver exceptional results. Each year, we successfully complete over 200 projects, demonstrating our commitment to excellence and the trust our clients place in us.</p>
+
+        </div>
+        <div class="owner-info">
+            <img src="owner.png" alt="Owner" class="owner-image">
+            <p>This Site Was Created by - Man Rami</p>
+        </div>
+    </div>
+	
+		<!-- Clientele Section -->
+<div class="section clientele">
+    <h2>Client Spotlight</h2>
+    <div class="client-content">
+        <div class="client-info">
+            <p>Our team excels in providing comprehensive maintenance and retrofitting services. We transform outdated machine systems into state-of-the-art, PLC-based control systems, enhancing efficiency and reliability. From electrical and electronics troubleshooting to routine inspections and equipment replacement, we ensure maximum equipment availability for our clients.</p>
+            <p>We specialize in planning and executing automation projects, including the installation of new machinery and comprehensive documentation. Our services extend to training production teams on new automation systems, ensuring seamless integration and improved operational efficiency. We also offer expert guidance in maintenance and materials management, fostering continuous improvement in manufacturing processes.</p>
+            <p>With experience across Limited, Micro, Medium, and Small Industries, our versatile team handles over 200 projects annually. We pride ourselves on delivering exceptional customer satisfaction by offering tailored solutions in maintenance management, retrofitting, and automation. Our commitment to quality and innovation ensures that our clients receive the best possible service, every time.</p>
+        </div>
+        <div class="client-images">
+            <div class="client">
+                <img src="c1.jpg" alt="Client 1">
+                <p> Industries</p>
+            </div>
+            <div class="client">
+                <img src="c3.jpg" alt="Client 3">
+                <p> Royale</p>
+            </div>
+            <div class="client">
+                <img src="c5.jpg" alt="Client 5">
+                <p> Heat Treaters</p>
+            </div>
+            <div class="client">
+                <img src="c4.jpg" alt="Client 4">
+                <p>MC</p>
+            </div>
+        </div>
+    </div>
+    <div class="view-more">
+        <button id="viewMoreBtn" onclick="toggleClients()">View More</button>
+        <div class="hidden-client" id="hiddenClient">
+            <div class="client">
+                <img src="c2.jpg" alt="Client 2">
+                <p>Heritage Marble</p>
+            </div>
+            <div class="client">
+                <img src="c6.jpg" alt="Client 6">
+                <p>Pavan Pressure Cast</p>
+            </div>
+            <div class="client">
+                <img src="c7.jpg" alt="Client 7">
+                <p>Rullitech Engineers</p>
+            </div>
+            <div class="client">
+                <img src="c8.jpg" alt="Client 8">
+                <p>General Machine Tools</p>
+            </div>
+        </div>
+    </div>
+</div>
+			
+    <!-- Location Map Section -->
+    <div class="section" id="location">
+        <h2>Our Location</h2>
+        <p>Find us at:</p>
+        <div class="map" id="map">
+            <!-- Embed Google Maps iframe here -->
+            <iframe src="https://maps.app.goo.gl/8HFgBLqx54d3Ka159" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+ <div class="footer">
+    <img src="RMS.jpg" alt="Logo">
+    <div class="contact-info">
+	<div id="contact-section">
+        <p><span class="label">CONTACT US</span></p>
+        <p><span class="label">Email:</span> <span class="value">your@gmail.com</span></p>
+        <p><span class="label">Phone:</span> <span class="value">numbers here</span></p>
+        <p><span class="label">GSTIN:</span> <span class="value">gst here </span></p>
+     
+    </div>
+	</div>
+</div>
+
+
+    <!-- Slideshow functionality -->
+    <script>
+        var slideIndex = 0;
+        function showSlides() {
+            var slides = document.getElementsByClassName("slideshow-slide");
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 10000); // Change video every 10 seconds
+        }
+        showSlides();
+		
+		
+		
+		function toggleClients() {
+    var hiddenClients = document.querySelector('.hidden-client');
+    var viewMoreBtn = document.getElementById('viewMoreBtn');
+    
+    if (hiddenClients.style.display === 'none') {
+        hiddenClients.style.display = 'flex';
+        viewMoreBtn.textContent = 'View Less';
+    } else {
+        hiddenClients.style.display = 'none';
+        viewMoreBtn.textContent = 'View More';
+    }
+}
+
+
+		</script>
+		
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 10px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .header {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .content {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .stats-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .stats-item {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .stats-item:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="header">
+            <img src="rms.jpg" alt="Logo" style="width: 80px;">
+            <h3>Admin Panel</h3>
+        </div>
+        <a href="#" onclick="loadStats()">Performance Stats</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>Performance Stats</h2>
+        </div>
+        <div class="content" id="statsContent">
+            <!-- Stats will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        function loadStats() {
+            const statsContent = document.getElementById('statsContent');
+            statsContent.innerHTML = '<p>Loading...</p>';
+
+            // Simulated data for views
+            const stats = [
+                { page: 'Homepage', views: 1245 },
+                { page: 'Products', views: 830 },
+                { page: 'Images', views: 540 },
+                { page: 'Services', views: 670 },
+                { page: 'Google (ramimachineservices)', views: 1580 }
+            ];
+
+            const ul = document.createElement('ul');
+            ul.classList.add('stats-list');
+
+            stats.forEach(stat => {
+                const li = document.createElement('li');
+                li.classList.add('stats-item');
+                li.innerHTML = `<strong>${stat.page}</strong>: ${stat.views} views`;
+                ul.appendChild(li);
+            });
+
+            statsContent.innerHTML = '';
+            statsContent.appendChild(ul);
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 10px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .header {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .content:hover {
+            transform: scale(1.02);
+        }
+        .stats-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .stats-item {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .stats-item:last-child {
+            margin-bottom: 0;
+        }
+        .stats-item strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="header">
+            <img src="rms.jpg" alt="Logo" style="width: 80px;">
+            <h3>Admin Panel</h3>
+        </div>
+        <a href="#" onclick="loadStats()">Performance Stats</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>Performance Stats</h2>
+        </div>
+        <div class="content" id="statsContent">
+            <!-- Stats will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        // Simulated data storage for page views and watch times
+        const pages = ['homepage', 'products', 'images', 'services'];
+
+        // Initialize or retrieve data from localStorage
+        const analytics = JSON.parse(localStorage.getItem('analytics')) || {};
+        pages.forEach(page => {
+            if (!analytics[page]) {
+                analytics[page] = {
+                    views: 0,
+                    minutesWatched: 0
+                };
+            }
+        });
+        localStorage.setItem('analytics', JSON.stringify(analytics));
+
+        // Function to dynamically load stats
+        function loadStats() {
+            const statsContent = document.getElementById('statsContent');
+            statsContent.innerHTML = '<p>Loading...</p>';
+
+            const stats = JSON.parse(localStorage.getItem('analytics'));
+            const ul = document.createElement('ul');
+            ul.classList.add('stats-list');
+
+            Object.keys(stats).forEach(page => {
+                const li = document.createElement('li');
+                li.classList.add('stats-item');
+                li.innerHTML = `
+                    <strong>${page.charAt(0).toUpperCase() + page.slice(1)}:</strong>
+                    <span>${stats[page].views} views</span>
+                    <span>${stats[page].minutesWatched} minutes watched</span>
+                `;
+                ul.appendChild(li);
+            });
+
+            statsContent.innerHTML = '';
+            statsContent.appendChild(ul);
+        }
+
+        // Simulate viewing a page (You can add these calls in the respective HTML files)
+        function simulatePageView(page) {
+            const analytics = JSON.parse(localStorage.getItem('analytics'));
+            analytics[page].views += 1;
+            analytics[page].minutesWatched += Math.floor(Math.random() * 10) + 1; // Simulate watch time
+            localStorage.setItem('analytics', JSON.stringify(analytics));
+        }
+
+        // Example simulation (You can remove these lines; for demo purposes only)
+        simulatePageView('homepage');
+        simulatePageView('products');
+    </script>
+</body>
+</html>

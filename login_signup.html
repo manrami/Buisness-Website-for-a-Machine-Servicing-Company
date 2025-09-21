@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup / Forgot Password</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            background-image: url('sl1.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+        }
+        .container {
+            width: 100%;
+            max-width: 525px;
+            min-height: 670px;
+            position: relative;
+            background: url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
+            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+        }
+        .login-html {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            padding: 90px 70px 50px 70px;
+            background: rgba(40, 57, 101, .9);
+        }
+        .login-html .sign-in-htm,
+        .login-html .sign-up-htm,
+        .login-html .forgot-password-htm {
+            display: none;
+        }
+        .login-html .sign-in-htm.active,
+        .login-html .sign-up-htm.active,
+        .login-html .forgot-password-htm.active {
+            display: block;
+        }
+        .login-html .tab,
+        .login-form .group .label,
+        .login-form .group .button {
+            text-transform: uppercase;
+        }
+        .login-html .tab {
+            font-size: 22px;
+            margin-right: 15px;
+            padding-bottom: 5px;
+            margin: 0 15px 10px 0;
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            color: #fff;
+        }
+        .login-html .tab-active {
+            color: #fff;
+            border-color: #1161ee;
+        }
+        .login-form {
+            min-height: 345px;
+            position: relative;
+        }
+        .login-form .group {
+            margin-bottom: 15px;
+        }
+        .login-form .group .label,
+        .login-form .group .input,
+        .login-form .group .button {
+            width: 100%;
+            color: #fff;
+            display: block;
+        }
+        .login-form .group .input,
+        .login-form .group .button {
+            border: none;
+            padding: 15px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, .1);
+        }
+        .login-form .group input[data-type="password"] {
+            text-security: circle;
+            -webkit-text-security: circle;
+        }
+        .login-form .group .label {
+            color: #aaa;
+            font-size: 12px;
+        }
+        .login-form .group .button {
+            background: #1161ee;
+        }
+        .hr {
+            height: 2px;
+            margin: 60px 0 50px 0;
+            background: rgba(255, 255, 255, .2);
+        }
+        .foot-lnk {
+            text-align: center;
+            color: #fff;
+        }
+        .foot-lnk a {
+            color: #1161ee;
+            text-decoration: none;
+        }
+        .sticky-logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+        .sticky-logo img {
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Logo -->
+    <div class="sticky-logo">
+        <img src="rms.jpg" alt="Logo" onclick="window.location.href='homepage.html'">
+    </div>
+
+    <!-- Blurred Background Image -->
+    <div class="background-image"></div>
+
+    <div class="container">
+        <div class="login-html">
+            <div class="tab-container">
+                <span class="tab tab-active" id="signInTab">Sign In</span>
+                <span class="tab" id="signUpTab">Sign Up</span>
+            </div>
+            
+            <div class="login-form">
+                <div class="sign-in-htm active" id="signInForm">
+                    <form id="loginForm">
+                        <div class="group">
+                            <label for="loginEmail" class="label">Email</label>
+                            <input id="loginEmail" type="email" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="loginPassword" class="label">Password</label>
+                            <input id="loginPassword" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign In">
+                        </div>
+                    </form>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+                    </div>
+                    <div class="foot-lnk">
+                        <a href="#" id="notMemberLink">Not a member? Sign Up</a>
+                    </div>
+                </div>
+
+                <div class="sign-up-htm" id="signUpForm">
+                    <form id="signupForm">
+                        <div class="group">
+                            <label for="signupEmail" class="label">Email</label>
+                            <input id="signupEmail" type="email" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="signupPassword" class="label">Password</label>
+                            <input id="signupPassword" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <label for="signupRepeatPassword" class="label">Repeat Password</label>
+                            <input id="signupRepeatPassword" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign Up">
+                        </div>
+                    </form>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#" id="alreadyMemberLink">Already a member? Sign In</a>
+                    </div>
+                </div>
+
+                <div class="forgot-password-htm" id="forgotPasswordForm">
+                    <form id="resetPasswordForm">
+                        <div class="group">
+                            <label for="resetEmail" class="label">Email</label>
+                            <input id="resetEmail" type="email" class="input">
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Reset Password">
+                        </div>
+                    </form>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#" id="backToSignInLink">Remembered? Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "ur details here",
+            authDomain: "ur details here",
+            projectId: "ur details here",
+            storageBucket: "ur details here",
+            messagingSenderId: "ur details here",
+            appId: "ur details here",
+            measurementId: "ur details here"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Toggle forms
+        document.getElementById('signInTab').addEventListener('click', () => {
+            showForm('signInForm');
+        });
+
+        document.getElementById('signUpTab').addEventListener('click', () => {
+            showForm('signUpForm');
+        });
+
+        document.getElementById('forgotPasswordLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            showForm('forgotPasswordForm');
+        });
+
+        document.getElementById('backToSignInLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            showForm('signInForm');
+        });
+
+        document.getElementById('notMemberLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            showForm('signUpForm');
+        });
+
+        document.getElementById('alreadyMemberLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            showForm('signInForm');
+        });
+
+        function showForm(formId) {
+            document.querySelectorAll('.login-form > div').forEach(form => form.classList.remove('active'));
+            document.getElementById(formId).classList.add('active');
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('tab-active'));
+            if (formId === 'signInForm') {
+                document.getElementById('signInTab').classList.add('tab-active');
+            } else if (formId === 'signUpForm') {
+                document.getElementById('signUpTab').classList.add('tab-active');
+            }
+        }
+
+        // Signup
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const repeatPassword = document.getElementById('signupRepeatPassword').value;
+            if (password !== repeatPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+            try {
+                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                alert('Signup successful!');
+                window.location.href = 'homepage.html';
+            } catch (error) {
+                alert('Error signing up: ' + error.message);
+            }
+        });
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            try {
+                const userCredential = await auth.signInWithEmailAndPassword(email, password);
+                alert('Login successful!');
+                window.location.href = 'homepage.html';
+            } catch (error) {
+                alert('Error logging in: ' + error.message);
+            }
+        });
+
+        // Reset Password
+        document.getElementById('resetPasswordForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('resetEmail').value;
+            try {
+                await auth.sendPasswordResetEmail(email);
+                alert('Password reset email sent!');
+                showForm('signInForm');
+            } catch (error) {
+                alert('Error sending password reset email: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

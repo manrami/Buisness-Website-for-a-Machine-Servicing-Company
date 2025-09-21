@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: "Raleway", sans-serif;
+            overflow: auto;
+            padding-bottom: 50px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #D79922, #EFE2BA, #F13C20, #4056A1, #C5CBE3);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .sticky-logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .sticky-logo img {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .block {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px 10px;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: row;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: all 0.3s ease-in-out;
+            background-color: #ffffff;
+            height: auto;
+        }
+
+        .card:hover {
+            background-color: #86B3D1;
+            color: #ffffff;
+        }
+
+        .card:hover:nth-child(2) {
+            background-color: #474853;
+        }
+
+        .card:hover:nth-child(3) {
+            background-color: #8E8268;
+        }
+
+        .photo {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .description {
+            padding: 40px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .description h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #1F1F1F;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .description h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #333333;
+            text-transform: capitalize;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .description p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            line-height: 1.6;
+            color: #2C2C2C;
+        }
+
+        .description button {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            background: #333333;
+            color: #FFFFFF;
+            border: 2px solid #444444;
+            padding: 12px 0;
+            text-transform: uppercase;
+            width: 150px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .description button:hover {
+            background: #ad1457;
+            color: white;
+        }
+
+        .arrow {
+            cursor: pointer;
+            font-size: 2em;
+            padding: 10px;
+            transition: all 0.3s ease;
+            display: none; /* Hide arrows by default */
+        }
+
+        .arrow:hover {
+            color: #f13c20; /* Change arrow color on hover */
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .card {
+                flex-direction: column;
+            }
+
+            .photo {
+                width: 100%;
+            }
+
+            .description {
+                width: 100%;
+                align-items: center;
+                text-align: center;
+            }
+
+            .description button {
+                align-self: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sticky Logo -->
+    <div class="sticky-logo">
+        <img src="RMS.jpg" alt="Logo" onclick="window.location.href='homepage.html'">
+    </div>
+
+    <div class="block">
+        <!-- Example Product Card with One Image (Turcite) -->
+        <div class="card">
+            <div class="photo">
+                <img class="product-img" src="p1.jpg" alt="Turcite Image" data-images='["p1.jpg"]' data-desc='[
+                    "Turcite is a premium low-friction material known for its unparalleled wear resistance and durability. Ideal for machine tools, it ensures precision, longevity, and smooth performance for the most demanding industrial applications."
+                ]'>
+            </div>
+            <div class="description">
+                <h2>Turcite</h2>
+                <h4>Industrial Material</h4>
+                <p class="product-desc">
+                    Turcite is a premium low-friction material known for its unparalleled wear resistance and durability. Ideal for machine tools, it ensures precision, longevity, and smooth performance for the most demanding industrial applications.
+                </p>
+                <div class="navigation">
+                    <span class="arrow left-arrow">&#10094;</span>
+                    <span class="arrow right-arrow">&#10095;</span>
+                </div>
+                <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+            </div>
+        </div>
+		
+		
+		<div class="card">
+    <div class="photo">
+        <img class="product-img" src="bearings.jpg" alt="Bearings Image" data-images='["bearings.jpg","brands.jpg"]' data-desc='[
+            " BallBearings, Double Row Bearings, Angular Contact, Taper Roller, Cylindrical Roller, Needle Bearings, Thrust Bearing, Self Aligning, Ceramic Bearings",
+            " We supply a wide range of bearings from leading brands such as SKF, FAG, INA, Timken, NTN, Koyo, NSK, and IKO, ensuring reliability and performance for diverse industrial needs."
+        ]'>
+    </div>
+    <div class="description">
+        <h2>All type of Bearings </h2>
+        <p class="product-desc">
+           BallBearings, Double Row Bearings, Angular Contact, Taper Roller, Cylindrical Roller, Needle Bearings, Thrust Bearing, Self Aligning, Ceramic Bearings
+        </p>
+        <div class="navigation">
+            <span class="arrow left-arrow">&#10094;</span>
+            <span class="arrow right-arrow">&#10095;</span>
+        </div>
+        <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+    </div>
+</div>
+
+
+	<div class="card">
+    <div class="photo">
+        <img class="product-img" src="cable.jpg" alt="Cable Carrier System" data-images='["cable.jpg","c23.jpg"]' data-desc='[
+            "A cable tray is designed to securely support and route electrical cables, ensuring smooth and uninterrupted operation. It prevents sagging, tangling, or damage to the cables, reducing the risk of electrical faults. The structure is built for durability and stability, ensuring that cables remain in place without unnecessary strain or wear. Proper installation and maintenance help maintain system efficiency and safety."
+			,"All type of Kabel Tray avaliable."
+        ]'>
+    </div>
+    <div class="description">
+        <h2>Cable Tray</h2>
+        <p class="product-desc">
+            A cable tray is designed to securely support and route electrical cables, ensuring smooth and uninterrupted operation. It prevents sagging, tangling, or damage to the cables, reducing the risk of electrical faults. The structure is built for durability and stability, ensuring that cables remain in place without unnecessary strain or wear. Proper installation and maintenance help maintain system efficiency and safety.
+        </p>
+        <div class="navigation">
+            <span class="arrow left-arrow">&#10094;</span>
+            <span class="arrow right-arrow">&#10095;</span>
+        </div>
+        <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="photo">
+        <img class="product-img" src="hspeed.jpg" alt="High-Speed Bearings" data-images='["hspeed.jpg"]' data-desc='[
+            "High-speed precision bearings from leading brands like NSK, RHP, Timken, FAG, SLF, and INA, available in classes P2, P3, P4, and P5."
+        ]'>
+    </div>
+    <div class="description">
+        <h2>High Speed Bearings</h2>
+        <p class="product-desc">
+            High-speed precision bearings from trusted brands such as NSK, RHP, Timken, FAG, SLF, and INA. These bearings are available in accuracy classes P2, P3, P4, and P5, ensuring exceptional performance in demanding applications.
+        </p>
+        <div class="navigation">
+            <span class="arrow left-arrow">&#10094;</span>
+            <span class="arrow right-arrow">&#10095;</span>
+        </div>
+        <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+    </div>
+</div>
+
+<div class="card">
+    <div class="photo">
+        <img class="product-img" src="pillow.jpg" alt="Pillow Block Units" data-images='["pillow.jpg"]' data-desc='[
+            "Pillow block units from trusted brands like NTN, SKF, TR, and FYH, featuring UCP, UCF, UCFL, UCT, and many other designs like UCP, UCF, UCFL, UCT, and many more, providing reliable support and ease of installation for industrial applications.."
+        ]'>
+    </div>
+    <div class="description">
+        <h2>Pillow Block Units</h2>
+        <p class="product-desc">
+            Pillow block units are available from leading manufacturers such as NTN, SKF, TR, and FYH. These units include various designs like UCP, UCF, UCFL, UCT, and many more, providing reliable support and ease of installation for industrial applications.
+        </p>
+        <div class="navigation">
+            <span class="arrow left-arrow">&#10094;</span>
+            <span class="arrow right-arrow">&#10095;</span>
+        </div>
+        <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+    </div>
+</div>
+
+<div class="card">
+    <div class="photo">
+        <img class="product-img" src="pln.jpg" alt="Precision Lock Nuts" data-images='["pln.jpg"]' data-desc='[
+            "Precision lock nuts from YSK and YSR, available in sizes ranging from 10mm to 100mm."
+        ]'>
+    </div>
+    <div class="description">
+        <h2>Precision Lock Nuts</h2>
+        <p class="product-desc">
+            Precision lock nuts from YSK and YSR, available in sizes ranging from 10mm to 100mm. These lock nuts ensure secure and precise fastening in various industrial applications.
+        </p>
+        <div class="navigation">
+            <span class="arrow left-arrow">&#10094;</span>
+            <span class="arrow right-arrow">&#10095;</span>
+        </div>
+        <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+    </div>
+</div>
+
+<div class="card">
+    <div class="photo">
+        <img class="product-img" src="co1.jpg" alt="Couplings" data-images='["co1.jpg", "co2.jpg", "co3.jpg", "co4.png"]' data-desc='[
+            "We offer a wide variety of couplings from various trusted brands, ensuring the perfect fit for your application needs.",
+            "Disc couplings provide flexible and reliable performance, ideal for high-torque and high-speed applications, reducing stress on connected components.",
+            "Lovejoy jaw couplings are designed to absorb shock loads, dampen vibrations, and provide reliable torque transmission in industrial applications.",
+            "Encoder couplings are specifically designed to connect encoders to motors or shafts, offering accurate signal transmission with minimal backlash."
+        ]'>
+    </div>
+    <div class="description">
+        <h2>COUPLINGS</h2>
+        <p class="product-desc">
+            We offer a wide variety of couplings from various trusted brands, ensuring the perfect fit for your application needs.
+        </p>
+        <div class="navigation">
+            <span class="arrow left-arrow">&#10094;</span>
+            <span class="arrow right-arrow">&#10095;</span>
+        </div>
+        <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+    </div>
+</div>
+
+
+        <!-- Example Product Card with Multiple Images (Turcite Plus) -->
+        <div class="card">
+            <div class="photo">
+                <img class="product-img" src="p1.jpg" alt="Turcite Plus Image" data-images='["hg.jpg", "eg.jpg", "cg.jpg","rg.jpg","we.jpg","mg.jpg","qh.jpg","qe.jpg","qw.jpg","qr.jpg","pg.jpg"]' data-desc='[
+                    " HG Series - High load capacity and rigidity for smooth, precise motion in all directions, ensuring long life and accuracy.",
+                    "EG Series - Compact and low-profile, designed for high load capacity and rigidity, ideal for high-speed, space-limited applications.",
+                    "CG Series - Superior moment load capacity with smooth motion and optional dust protection for demanding applications.",
+					"RG Series - Uses rollers for higher rigidity and load capacity, offering superior performance and precision for heavy-duty machinery.",
+					"WE Series - High load capacity and rigidity with 45-degree contact, self-aligning to correct installation errors for precise applications.",
+					"MG Series - Miniature, compact guideway with high stiffness and anti-corrosion protection, suitable for harsh environments.",
+					"QH Series - Four-row circular-arc contact with SynchMotion™ technology for smooth, quiet, and durable motion in high-speed industries.",
+					"QE Series - Features SynchMotion™ technology for smooth, quiet, and high-speed performance in low-noise applications.",
+					"QW Series - Combines high rigidity and SynchMotion™ for quiet, smooth motion, ideal for space-saving and high-precision use.",
+					"QR Series - Offers high rigidity and load capacity with SynchMotion™ technology, perfect for high-accuracy, low-noise indusries.",
+					"PG Series - Integrates a magnetic encoder with the quideway for precise,long-llasting positioning in high-precision applications."
+                ]'>
+            </div>
+            <div class="description">
+                <h2>Linear Guideways</h2>
+                <p class="product-desc">
+                  HG Series - High load capacity and rigidity for smooth, precise motion in all directions, ensuring long life and accuracy.
+                </p>
+                <div class="navigation">
+                    <span class="arrow left-arrow">&#10094;</span>
+                    <span class="arrow right-arrow">&#10095;</span>
+                </div>
+                <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+            </div>
+        </div>
+    
+	
+	
+	<!-- Example Product Card with Multiple Images (Chuck) -->
+<div class="card">
+    <div class="photo">
+        <img class="product-img" src="chuck1.jpg" alt="Chuck Image" data-images='["chuck1.jpg", "chuck2.jpg", "chuck3.jpg", "chuck4.jpg", "chuck5.jpg", "chuck6.jpg"]' data-desc='[
+            "3-Jaw Chuck - Self-centering design for securely holding cylindrical workpieces, ideal for turning and machining operations.",
+            "4-Jaw Independent Chuck - Provides adjustable gripping for irregular workpieces, offering high precision and flexibility.",
+            "Hydraulic Chuck - Uses hydraulic pressure for high clamping force and stability, ensuring efficient high-speed machining.",
+            "Pneumatic Chuck - Operates using air pressure, delivering quick and reliable clamping for automation and production lines.",
+            "Manual Lathe Chuck - Standard chuck with a simple tightening mechanism, suitable for general machining tasks.",
+            "Power Chuck - High-speed, automatic clamping system for CNC machines, ensuring repeatability and strong grip for precision machining."
+        ]'>
+    </div>
+    <div class="description">
+        <h2>Chuck Series</h2>
+        <p class="product-desc">
+          3-Jaw Chuck - Self-centering design for securely holding cylindrical workpieces, ideal for turning and machining operations.
+        </p>
+        <div class="navigation">
+            <span class="arrow left-arrow">&#10094;</span>
+            <span class="arrow right-arrow">&#10095;</span>
+        </div>
+        <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+    </div>
+</div>
+
+    <div class="block">
+        <!-- Example Product Card with One Image (Turcite) -->
+        <div class="card">
+            <div class="photo">
+                <img class="product-img" src="rbsf.png" alt="Turcite Image" data-images='["rbsf.png"]' data-desc='[
+                    "The Rolled Ball Screw (RBSF) offers high-precision, low-friction linear motion, making it ideal for CNC machines. It is designed for durability and smooth operation, providing accurate movement with minimal backlash, which is crucial for high-performance, industrial applications."
+                ]'>
+            </div>
+            <div class="description">
+                <h2>Rolled Ball Screw</h2>
+                <h4>Precision Engineering for Linear Motion</h4>
+                <p class="product-desc">
+                  A Rolled Ball Screw (RBSF) is a type of mechanical device that converts rotary motion into linear motion with high efficiency. The ball screw system consists of a threaded shaft and ball bearings that travel along the threads to provide smooth and accurate linear motion. 
+                </p>
+                <div class="navigation">
+                    <span class="arrow left-arrow">&#10094;</span>
+                    <span class="arrow right-arrow">&#10095;</span>
+                </div>
+                <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+            </div>
+        </div>
+		
+		
+		 <!-- Example Product Card with Multiple Images (Turcite Plus) -->
+        <div class="card">
+            <div class="photo">
+                <img class="product-img" src="clutch0.jpg" alt="Double Axis Roller Image" data-images='["clutch0.jpg", "clutch1.jpg", "clutch3.jpg","clutch4.jpg"]' data-desc='[
+                 "A clutch enables smooth engagement and disengagement of power in machines, ensuring efficient operation. It helps control motion, reducing wear and preventing sudden shocks. A well-maintained clutch ensures seamless performance and longevity.",
+				 "A clutch enables smooth engagement and disengagement of power in machines, ensuring efficient operation. It helps control motion, reducing wear and preventing sudden shocks. A well-maintained clutch ensures seamless performance and longevity.",
+				 "A clutch enables smooth engagement and disengagement of power in machines, ensuring efficient operation. It helps control motion, reducing wear and preventing sudden shocks. A well-maintained clutch ensures seamless performance and longevity.",
+				 "A clutch enables smooth engagement and disengagement of power in machines, ensuring efficient operation. It helps control motion, reducing wear and preventing sudden shocks. A well-maintained clutch ensures seamless performance and longevity."
+                ]'>
+            </div>
+            <div class="description">
+                <h2>Clutch Plates</h2>
+                <p class="product-desc">
+                 A clutch enables smooth engagement and disengagement of power in machines, ensuring efficient operation. It helps control motion, reducing wear and preventing sudden shocks. A well-maintained clutch ensures seamless performance and longevity.
+                </p>
+                <div class="navigation">
+                    <span class="arrow left-arrow">&#10094;</span>
+                    <span class="arrow right-arrow">&#10095;</span>
+                </div>
+                <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+            </div>
+        </div>
+		
+		
+		<!-- Example Product Card with Multiple Images (Chuck Jaw Series) -->
+<div class="card">
+    <div class="photo">
+        <img class="product-img" src="cjaw0.jpg" alt="Chuck Jaw Image" data-images='["cjaw0.jpg", "cjaw1.jpg", "cjaw2.jpg"]' data-desc='[
+            "Chuck jaws provide a secure grip on workpieces, ensuring precision and stability in machining. Designed for high durability and accuracy.",
+            "Interchangeable chuck jaws offer flexibility for different applications, improving machining efficiency and reducing setup time.",
+            "Soft jaws available for delicate workpieces, preventing damage while maintaining a firm grip, ideal for precision machining."
+        ]'>
+    </div>
+    <div class="description">
+        <h2>Soft Jaw Chuck Series</h2>
+        <p class="product-desc">
+            Chuck jaws provide a secure grip on workpieces, ensuring precision and stability in machining. Designed for high durability and accuracy.
+        </p>
+        <div class="navigation">
+            <span class="arrow left-arrow">&#10094;</span>
+            <span class="arrow right-arrow">&#10095;</span>
+        </div>
+        <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+    </div>
+</div>
+
+		
+		<div class="card">
+            <div class="photo">
+                <img class="product-img" src="fanucdrivefan.jpg" alt="Double Axis Roller Image" data-images='["fanucdrivefan.jpg", "fanucdrivefan2.jpg", "fanucdrivefan3.jpg"]' data-desc='[
+                "A Fanuc drive fan ensures proper cooling of the drive system, preventing overheating and ensuring smooth operation. It helps maintain optimal performance, reduces wear, and extends the lifespan of the components. Regular maintenance keeps the system running efficiently.",
+				A Fanuc drive fan ensures proper cooling of the drive system, preventing overheating and ensuring smooth operation. It helps maintain optimal performance, reduces wear, and extends the lifespan of the components. Regular maintenance keeps the system running efficiently.",
+				A Fanuc drive fan ensures proper cooling of the drive system, preventing overheating and ensuring smooth operation. It helps maintain optimal performance, reduces wear, and extends the lifespan of the components. Regular maintenance keeps the system running efficiently.
+
+                ]'>
+            </div>
+            <div class="description">
+                <h2>Fanuc Drive Fan </h2>
+                <p class="product-desc">
+				A Fanuc drive fan ensures proper cooling of the drive system, preventing overheating and ensuring smooth operation. It helps maintain optimal performance, reduces wear, and extends the lifespan of the components. Regular maintenance keeps the system running efficiently.
+                </p>
+                <div class="navigation">
+                    <span class="arrow left-arrow">&#10094;</span>
+                    <span class="arrow right-arrow">&#10095;</span>
+                </div>
+                <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+            </div>
+        </div>
+
+		
+		
+		
+		 <!-- Example Product Card with Multiple Images (Turcite Plus) -->
+        <div class="card">
+            <div class="photo">
+                <img class="product-img" src="daxis.jpg" alt="Double Axis Roller Image" data-images='["daxis.jpg", "sg.jpg", "lgd.jpg"]' data-desc='[
+                    " A Double Axis Roller Linear Guide is a high-precision motion system used in machinery to provide smooth and accurate linear movement along two axes, typically in CNC machines and automated systems. This system uses roller bearings and rails to minimize friction, reduce wear, and improve the load capacity.",
+                    "SG Series - SG Series is a type of double-axis roller linear guide known for its high rigidity and smooth motion.",
+                    "LGD Series - LGD Series provides greater stability and increased rigidity compared to other roller guides."	
+                ]'>
+            </div>
+            <div class="description">
+                <h2>Double Axis Roller Linear Guide</h2>
+                <p class="product-desc">
+                 A Double Axis Roller Linear Guide is a high-precision motion system used in machinery to provide smooth and accurate linear movement along two axes, typically in CNC machines and automated systems. This system uses roller bearings and rails to minimize friction, reduce wear, and improve the load capacity.
+                </p>
+                <div class="navigation">
+                    <span class="arrow left-arrow">&#10094;</span>
+                    <span class="arrow right-arrow">&#10095;</span>
+                </div>
+                <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+            </div>
+        </div>
+    </div>
+	
+	
+	<div class="block">
+        <!-- Example Product Card with One Image (Turcite) -->
+        <div class="card">
+            <div class="photo">
+                <img class="product-img" src="lm.jpg" alt="linear motion Image" data-images='["lm.jpg"]' data-desc='[
+                    "The LM..UU series and LM-L (Long Type) series linear motion bearings provide smooth, precise motion in machinery. The LM..UU series offers low friction and high durability, making it ideal for CNC machines and robotic arms. The LM-L series, with its extended housing, supports larger loads and longer travel, perfect for heavy-duty machines like milling equipment and large robots. Both series enhance precision, reduce wear, and improve the performance of industrial machinery across manufacturing, automation, and robotics applications."
+                ]'>
+            </div>
+            <div class="description">
+                <h2>Linear Motion Bearings </h2>
+                <p class="product-desc">
+				The LM..UU series and LM-L (Long Type) series linear motion bearings provide smooth, precise motion in machinery. The LM..UU series offers low friction and high durability, making it ideal for CNC machines and robotic arms. The LM-L series, with its extended housing, supports larger loads and longer travel, perfect for heavy-duty machines like milling equipment and large robots. Both series enhance precision, reduce wear, and improve the performance of industrial machinery across manufacturing, automation, and robotics applications.
+                </p>
+                <div class="navigation">
+                    <span class="arrow left-arrow">&#10094;</span>
+                    <span class="arrow right-arrow">&#10095;</span>
+                </div>
+                <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+            </div>
+        </div>
+		
+	<div class="card">
+    <div class="photo">
+        <img class="product-img" src="lmslide.jpg" alt="LM Slide Image" data-images='["lmslide.jpg"]' data-desc='[
+            "Original THK SSR25xtb Linear Guide Slide Bearing SSR 25xtb LM Linear Motion Guide Block Bearing - High-precision and smooth motion in applications like laser machining or magnetic media scanning."
+        ]'>
+    </div>
+    <div class="description">
+        <h2>LM Slide</h2>
+        <p class="product-desc">
+            Original THK SSR25xtb Linear Guide Slide Bearing SSR 25xtb LM Linear Motion Guide Block Bearing - High-precision and smooth motion in applications like laser machining or magnetic media scanning.
+        </p>
+        <div class="navigation">
+            <span class="arrow left-arrow">&#10094;</span>
+            <span class="arrow right-arrow">&#10095;</span>
+        </div>
+        <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+    </div>
+</div>
+
+		
+		 <!-- Example Product Card with Multiple Images (Turcite Plus) -->
+        <div class="card">
+            <div class="photo">
+                <img class="product-img" src="scl.jpg" alt="Bearings Image" data-images='["scl.jpg","sbrrail.jpg","shf.jpg" ]' data-desc='[
+                    "SC/SL Series - This series bearings are designed for high-precision, smooth motion in various industrial applications.",
+                    "SBR Rail Series - It ensures stability and accuracy in motion systems, particualarly in CNC and automation equipment.",
+					"SH..A SHF... Series - This are robust, heavy-duty bearings designed for high load capacities, often used in demanding industiral machinery."					
+                ]'>
+            </div>
+            <div class="description">
+                <h2>Linear Motion and Rail Series Bearings </h2>
+                <p class="product-desc">
+				The SC/SL Series bearings are designed for high-precision, smooth motion in various industrial applications.
+                </p>
+                <div class="navigation">
+                    <span class="arrow left-arrow">&#10094;</span>
+                    <span class="arrow right-arrow">&#10095;</span>
+                </div>
+                <button onclick="window.location.href='homepage.html#contact-section'">Contact Us</button>
+            </div>
+        </div>
+    </div>
+	
+	
+	
+	
+    <script>
+        // Reusable Script to handle image and description switching
+        const productImages = document.querySelectorAll('.product-img');
+        productImages.forEach(img => {
+            const images = JSON.parse(img.getAttribute('data-images'));
+            const descriptions = JSON.parse(img.getAttribute('data-desc'));
+            let currentIndex = 0;
+
+            const descriptionElement = img.closest('.card').querySelector('.product-desc');
+            const leftArrow = img.closest('.card').querySelector('.left-arrow');
+            const rightArrow = img.closest('.card').querySelector('.right-arrow');
+
+            // Only show arrows if there are multiple images
+            if (images.length > 1) {
+                leftArrow.style.display = 'inline';
+                rightArrow.style.display = 'inline';
+            }
+
+            // Update image and description
+            function updateProductDisplay() {
+                img.src = images[currentIndex];
+                descriptionElement.textContent = descriptions[currentIndex];
+                // Hide arrows if we are at the first or last image
+                leftArrow.style.display = currentIndex > 0 ? 'inline' : 'none';
+                rightArrow.style.display = currentIndex < images.length - 1 ? 'inline' : 'none';
+            }
+
+            // Next image
+            rightArrow.addEventListener('click', () => {
+                if (currentIndex < images.length - 1) {
+                    currentIndex++;
+                    updateProductDisplay();
+                }
+            });
+
+            // Previous image
+            leftArrow.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateProductDisplay();
+                }
+            });
+
+            // Initialize display
+            updateProductDisplay();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300|Poppins:400,600" rel="stylesheet">
+    <style>
+        body {
+            background-image: linear-gradient(to right bottom, #b91eda, #a02ae0, #8234e5, #5d3be8, #1241eb);
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .sticky-logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .sticky-logo img {
+            width: 80px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 5% auto;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
+            transition: 200ms;
+            background: #fff;
+            margin: 30px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card__title {
+            display: flex;
+            align-items: center;
+            padding: 30px 40px;
+        }
+
+        .card__title h3 {
+            flex: 1;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .card__body {
+            padding: 20px 40px;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .half {
+            box-sizing: border-box;
+            padding: 15px;
+            flex: 1;
+        }
+
+        .featured_text h1 {
+            margin: 0;
+            padding: 0;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            line-height: 40px;
+            color: #181e28;
+        }
+
+        .image {
+            padding-top: 15px;
+            width: 100%;
+            position: relative;
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+            overflow: hidden;
+        }
+
+        .image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the container */
+            border-radius: 10px;
+        }
+
+        .description h3 {
+            margin-bottom: 15px;
+            color: #252525;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+
+        .description ul {
+            padding-left: 20px;
+        }
+
+        .description li {
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .card__footer {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            background: #f5f5f5;
+        }
+
+        .action button {
+            cursor: pointer;
+            border: 1px solid #115dd8;
+            padding: 14px 30px;
+            border-radius: 200px;
+            color: #fff;
+            background: #115dd8;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            transition: 200ms;
+        }
+
+        .action button:hover {
+            background: #fff;
+            color: #115dd8;
+        }
+
+        /* Unique background colors for each card */
+        .blue-bg {
+            background: #115dd8;
+            color: white;
+        }
+
+        .green-bg {
+            background: #17a589;
+            color: white;
+        }
+
+        .purple-bg {
+            background: #8e44ad;
+            color: white;
+        }
+		.orange-bg {
+    background: #f39c12;
+    color: white;
+		}
+
+		.red-bg {
+    background: #e74c3c;
+    color: white;
+		}
+
+		.pink-bg {
+    background: #e84393;
+    color: white;
+		}	
+
+		.teal-bg {
+    background: #1abc9c;
+    color: white;
+		}
+
+		.yellow-bg {
+    background: #f1c40f;
+    color: black; /* Adjust text color for better contrast */
+		}
+    </style>
+</head>
+<body>
+    <!-- Sticky Logo -->
+    <a href="homepage.html" class="sticky-logo">
+        <img src="RMS.jpg" alt="RMS Logo">
+    </a>
+
+    <!-- Main Content -->
+    <main>
+        <!-- CNC Services Card -->
+        <div class="card">
+            <div class="card__title blue-bg">
+                <h3>CNC Services</h3>
+            </div>
+            <div class="card__body">
+                <div class="half">
+                    <div class="featured_text">
+                        <h1>VMC Machine</h1>
+                    </div>
+                    <div class="image">
+                        <img src="vm.jpg" alt="VMC">
+                    </div>
+                </div>
+                <div class="half">
+                    <div class="description">
+                        <h3>Services Offered</h3>
+                        <ul>
+                            <li>Comprehensive VMC Servicing and Maintenance</li>
+                            <li>Spindle Replacement and Repairs</li>
+                            <li>Part Modification and Upgrades</li>
+                            <li>Full Cleaning and Performance Optimization</li>
+                            <li>Machine Troubleshooting and Fault Diagnosis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card__footer">
+                <div class="action">
+                    <a href="homepage.html#contact-section">
+                        <button type="button">
+                            CONTACT US
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Another HMC Services Card -->
+        <div class="card">
+            <div class="card__title green-bg">
+                <h3>CNC Services</h3>
+            </div>
+            <div class="card__body">
+                <div class="half">
+                    <div class="featured_text">
+                        <h1>HMC Machine</h1>
+                    </div>
+                    <div class="image">
+                        <img src="hmc.png" alt="HMC">
+                    </div>
+                </div>
+                <div class="half">
+                    <div class="description">
+                        <h3>Services Offered</h3>
+                        <ul>
+                            <li>HMC Servicing and Maintenance</li>
+                            <li>Axis Calibration and Repairs</li>
+                            <li>Hydraulic and Electrical System Optimization</li>
+                            <li>Cleaning and Lubrication Services</li>
+                            <li>Fault Diagnosis and Troubleshooting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card__footer">
+                <div class="action">
+                    <a href="homepage.html#contact-section">
+                        <button type="button">
+                            CONTACT US
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+		<div class="card">
+            <div class="card__title purple-bg">
+                <h3>CNC Services</h3>
+            </div>
+		<div class="card__body">
+    <div class="half">
+        <div class="featured_text">
+            <h1>Turning Machine</h1>
+        </div>
+        <div class="image">
+            <img src="turning.png" alt="Turning Machine">
+        </div>
+    </div>
+    <div class="half">
+        <div class="description">
+            <h3>Services Offered</h3>
+            <ul>
+                <li>Turning Machine Servicing and Maintenance</li>
+                <li>Part Replacement and Modifications</li>
+                <li>Axis Alignment and Calibration</li>
+                <li>Hydraulic and Electrical System Repairs</li>
+                <li>Complete Machine Overhauling</li>
+                <li>Fault Diagnosis and Troubleshooting</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card__footer">
+    <div class="action">
+        <a href="homepage.html#contact-section">
+            <button type="button">
+                CONTACT US
+            </button>
+        </a>
+    </div>
+</div>
+</div>
+
+<!-- Cylindrical Grinding Services Card -->
+<div class="card">
+    <div class="card__title orange-bg">
+        <h3>CNC Services</h3>
+    </div>
+    <div class="card__body">
+        <div class="half">
+            <div class="featured_text">
+                <h1>Cylindrical Grinding Machine</h1>
+            </div>
+            <div class="image">
+                <img src="cylindrical-grinding.png" alt="Cylindrical Grinding Machine">
+            </div>
+        </div>
+        <div class="half">
+            <div class="description">
+                <h3>Services Offered</h3>
+                <ul>
+                    <li>Grinding Wheel Balancing & Replacement</li>
+                    <li>Precision Surface Finishing</li>
+                    <li>Machine Alignment and Calibration</li>
+                    <li>Hydraulic and Spindle System Maintenance</li>
+                    <li>Fault Diagnosis and Troubleshooting</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card__footer">
+        <div class="action">
+            <a href="homepage.html#contact-section">
+                <button type="button">
+                    CONTACT US
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Hobbing Machine Services Card -->
+<div class="card">
+    <div class="card__title pink-bg">
+        <h3>CNC Services</h3>
+    </div>
+    <div class="card__body">
+        <div class="half">
+            <div class="featured_text">
+                <h1>Hobbing Machine</h1>
+            </div>
+            <div class="image">
+                <img src="hobbing-machine.png" alt="Hobbing Machine">
+            </div>
+        </div>
+        <div class="half">
+            <div class="description">
+                <h3>Services Offered</h3>
+                <ul>
+                    <li>Gear Hobbing Machine Servicing & Maintenance</li>
+                    <li>Spindle & Cutter Alignment</li>
+                    <li>Hydraulic & Lubrication System Optimization</li>
+                    <li>Gear Cutting Precision Calibration</li>
+                    <li>Fault Diagnosis and Troubleshooting</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card__footer">
+        <div class="action">
+            <a href="homepage.html#contact-section">
+                <button type="button">
+                    CONTACT US
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+    </main>
+</body>
+</html>
